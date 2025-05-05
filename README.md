@@ -1,6 +1,6 @@
 # 📊 Data Visualization Projects
 
-This repository showcases two Power BI dashboards developed as part of a college-level data analytics course. Each project focuses on transforming raw data into actionable insights using end-to-end processes including data preparation, modeling, and dashboard design.
+This repository showcases Power BI dashboards and Python programs developed as part of a college-level data analytics course. Each project focuses on transforming raw data into actionable insights using end-to-end processes including data preparation, modeling, and dashboard design.
 
 ---
 
@@ -73,3 +73,12 @@ To analyze global and regional life expectancy trends and build a predictive mod
 
 ---
 
+## National Address Register ETL (SQL Server)
+
+A single Python script that converts raw National Address Register (NAR) CSV files, containing about 15 million records in total, into a tidy, query-ready relational schema.
+
+### Methodology
+1. **Stage** – create a `NAR_raw` table mirroring the first CSV’s header and bulk-load all CSVs with `BULK INSERT`.  
+2. **Normalize** – generate and populate lookup tables (street type/dir, CSD name/type, province codes, etc.) from distinct raw values or curated code lists.  
+3. **Model** – build two fact tables, `Location` and `Address`, via a CTE that deduplicates on `LOC_GUID` using `ROW_NUMBER()`.  
+4. **Validate** – display record counts for raw vs. final tables and total runtime to verify the load.
